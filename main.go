@@ -63,7 +63,7 @@ func main(){
 		log.Fatal(err.Error())
 	}
 	// Load Local project spec.json
-	projectPath := fmt.Sprintf("./projects/%s", project.Template.Slug)
+	projectPath := fmt.Sprintf("./templates/%s", project.Template.Slug)
 	projectSpecFile := fmt.Sprintf("%s/spec.json", projectPath)
 	if _, err := os.Stat(projectSpecFile); os.IsNotExist(err) {
 		log.Fatal(err.Error())
