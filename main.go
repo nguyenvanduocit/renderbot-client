@@ -45,6 +45,7 @@ func main(){
 		log.Fatal("Error loading .env file")
 	}
 	endpoint := os.Getenv("API_ENDPOINT")
+	assetBaseUrl := os.Getenv("ASSET_BASE_URL")
 	aeRenderPath := os.Getenv("AERENDER_PATH")
 	// Get project from server
 	httpClient := &http.Client{}
@@ -80,9 +81,10 @@ func main(){
 	}
 	assets := []autorender.Asset{}
 	for _,image := range templateObject.Images{
+		fmt.Println(fmt.Sprintf("%s/%s", assetBaseUrl, project.Images[image.FileName]))
 		asset := autorender.Asset{
 			Type: "image",
-			Src: project.Images[image.FileName],
+			Src: fmt.Sprintf("%s/%s", assetBaseUrl, project.Images[image.FileName]),
 			Name: image.FileName,
 		}
 		assets = append(assets, asset)
