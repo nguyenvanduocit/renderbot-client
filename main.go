@@ -46,6 +46,7 @@ func main(){
 		log.Fatal("Error loading .env file")
 	}
 	endpoint := os.Getenv("API_ENDPOINT")
+	aeRenderPath := os.Getenv("AERENDER_PATH")
 	// Get project from server
 	httpClient := &http.Client{}
 	request, _ := http.NewRequest("GET", fmt.Sprintf("%s/projects/pop", endpoint), nil)
@@ -74,7 +75,7 @@ func main(){
 	var templateObject Template
 	json.Unmarshal(specFile, &templateObject)
 	//Create AutoRender
-	render,err := autorender.New("/Applications/Adobe After Effects CC 2015.3/aerender")
+	render,err := autorender.New(aeRenderPath)
 	if err != nil {
 		log.Fatal(err)
 	}
