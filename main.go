@@ -10,7 +10,6 @@ import (
 	"os"
 	"io/ioutil"
 	"github.com/nguyenvanduocit/autorender"
-	"9fans.net/go/plan9/client"
 )
 
 type Size struct{
