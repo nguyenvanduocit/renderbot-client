@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	_ "github.com/nguyenvanduocit/autorender"
 	"log"
 	"net/http"
 	"encoding/json"
